@@ -3,11 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=firstGame.html">
-    <title>First Godot Game</title>
+    <meta name="description" content="Juegos Godot - Plataformas y Carreras Retro">
+    <meta name="author" content="Jose Luis Alavez Manzano">
+    <title>Mis Juegos Godot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .game-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .controls {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .controls-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .footer {
+            margin-top: 3rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+            animation: fadeIn 1.2s ease-out 0.6s both;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirigiendo al juego...</p>
-    <p>Si no eres redirigido automáticamente, <a href="firstGame.html">haz clic aquí</a>.</p>
+    <div class="container">
+        <h1>🎮 Mis Juegos Godot</h1>
+        <p class="subtitle">Colección de juegos desarrollados con Godot 4.5</p>
+
+        <div class="games-grid">
+            <!-- Juego de Plataformas -->
+            <div class="game-card" onclick="window.location.href='firstGame.html'">
+                <span class="game-icon">🏃</span>
+                <h2 class="game-title">Juego de Plataformas</h2>
+                <p class="game-description">
+                    Juego clásico de plataformas 2D con físicas realistas,
+                    saltos suaves y controles precisos.
+                </p>
+                <div class="controls">
+                    <div class="controls-title">⌨️ Controles:</div>
+                    <div>← → / A D: Mover</div>
+                    <div>Espacio / W / ↑: Saltar</div>
+                    <div>ESC: Reiniciar nivel</div>
+                </div>
+                <a href="firstGame.html" class="btn">Jugar Ahora</a>
+            </div>
+
+            <!-- Juego de Carreras -->
+            <div class="game-card" onclick="window.location.href='racingGame.html'">
+                <span class="game-icon">🏎️</span>
+                <h2 class="game-title">Carreras Retro</h2>
+                <p class="game-description">
+                    Juego de carreras estilo arcade con efecto pseudo-3D,
+                    curvas dinámicas y estética retro.
+                </p>
+                <div class="controls">
+                    <div class="controls-title">⌨️ Controles:</div>
+                    <div>← → / A D: Mover lateralmente</div>
+                    <div>El auto avanza automáticamente</div>
+                    <div>Esquiva los bordes del camino</div>
+                </div>
+                <a href="racingGame.html" class="btn">Jugar Ahora</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="tech-stack">
+                <span class="tech-badge">🎮 Godot 4.5</span>
+                <span class="tech-badge">🌐 HTML5</span>
+                <span class="tech-badge">☁️ Azure Static Web Apps</span>
+                <span class="tech-badge">🔧 GDScript</span>
+            </div>
+            <p style="margin-top: 1rem;">
+                Desarrollado con ❤️ por Jose Luis Alavez Manzano
+            </p>
+        </div>
+    </div>
 </body>
 </html>
